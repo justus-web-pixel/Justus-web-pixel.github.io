@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meyer Digital – Websites und Automatisierungen für kleine Unternehmen</title>
+<meta name="description" content="Moderne Websites und kleine Automatisierungen für Restaurants, Cafés, Imbisse und Handwerksbetriebe aus der Region Verden und Walsrode.">
+<meta name="theme-color" content="#0B1B33">
+<style>
+:root{--navy:#0B1B33;--navy2:#13294B;--sky:#8CC4F0;--mist:#EEF5FC;--ink:#10223D;--muted:#4A5F7C;--line:#D5E3F2;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font:17px/1.6 var(--sans);color:var(--ink);background:#fff}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 .5em;font-weight:700}
+h1{font-size:clamp(2.3rem,8vw,4rem)}
+h2{font-size:clamp(1.7rem,5vw,2.4rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:var(--navy);padding:8px 14px;z-index:99}
+.skip:focus{left:8px}
+.wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+section{padding:72px 0}
+.btn{display:inline-block;padding:14px 24px;border-radius:10px;font:600 1rem var(--sans);text-decoration:none;border:2px solid transparent;cursor:pointer;min-height:48px}
+.btn-primary{background:var(--sky);color:var(--navy)}
+.btn-primary:hover{background:#fff}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+header{position:sticky;top:0;z-index:10;background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.1rem var(--sans);letter-spacing:.14em;text-decoration:none}
+.logo span{color:var(--sky)}
+nav ul{display:flex;gap:26px;align-items:center;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500}
+nav a:not(.btn):hover{color:var(--sky)}
+nav .btn{padding:9px 18px;min-height:0}
+.menu{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;padding:8px 14px;font:600 .95rem var(--sans);cursor:pointer}
+.hero{background:var(--navy);color:#fff;padding:64px 0 80px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero p.lead{font-size:1.2rem;color:#C9DBEE}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.hero h1,.hero .lead,.hero .cta,.phone{animation:rise .8s ease both}
+.hero .lead{animation-delay:.1s}.hero .cta{animation-delay:.2s}.phone{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.phone{justify-self:center;width:250px;background:#fff;color:var(--ink);border-radius:32px;padding:14px;border:6px solid var(--navy2);box-shadow:0 0 0 2px var(--sky),0 30px 60px rgba(0,0,0,.4)}
+.phone .top{background:var(--navy);color:#fff;border-radius:18px;padding:18px 14px;font:700 1.05rem var(--serif)}
+.phone .top small{display:block;font:400 .75rem var(--sans);color:var(--sky);margin-top:2px}
+.row{display:flex;justify-content:space-between;padding:11px 4px;border-bottom:1px solid var(--line);font-size:.9rem}
+.row b{font-weight:600}
+.phone .go{display:block;margin-top:14px;text-align:center;background:var(--sky);color:var(--navy);border-radius:10px;padding:10px;font-weight:600;font-size:.9rem}
+.mist{background:var(--mist)}
+.intro{margin-bottom:36px}
+.intro p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column}
+.card.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+.card.main p,.card.main .price small{color:#C9DBEE}
+.price{font:700 2rem var(--serif);margin:6px 0 14px}
+.price small{display:block;font:400 .85rem var(--sans);color:var(--muted)}
+.card ul{margin:0;padding-left:1.1em;color:inherit}
+.note{margin-top:24px;color:var(--muted);font-size:.95rem}
+.ref{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.shot{height:170px;padding:16px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.ref .body{padding:20px}
+.tag{display:inline-block;background:var(--mist);border:1px solid var(--line);border-radius:6px;padding:2px 10px;font-size:.85rem;margin-bottom:10px;color:var(--navy2);font-weight:600}
+.s1{background:#1B3358;color:#fff}.s1 i{display:block;height:9px;border-radius:5px;background:rgba(255,255,255,.35)}
+.s2{background:var(--mist)}.s2 .blk{height:60px;border-radius:8px;background:var(--navy2)}.s2 i{display:block;height:9px;width:60%;border-radius:5px;background:var(--sky)}
+.s3{background:#EAF2FA}.bub{background:#fff;border-radius:12px 12px 12px 2px;padding:10px 12px;font-size:.85rem;box-shadow:0 1px 3px rgba(11,27,51,.15);max-width:90%}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.facts{list-style:none;padding:0;margin:0}
+.facts li{padding:16px 0;border-bottom:1px solid var(--line)}
+.facts li:first-child{padding-top:0}
+.facts b{display:block;font-family:var(--serif);font-size:1.1rem}
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.steps li{counter-increment:s;padding-top:16px;border-top:3px solid var(--navy)}
+.steps li::before{content:counter(s);display:block;font:700 1.6rem var(--serif);color:var(--navy2);margin-bottom:4px}
+.steps p{color:var(--muted);font-size:.95rem}
+.contact{background:var(--navy);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.contact p{color:#C9DBEE}
+form{background:#fff;color:var(--ink);border-radius:14px;padding:26px}
+label{display:block;font-weight:600;margin:0 0 4px;font-size:.95rem}
+input,select,textarea{width:100%;font:inherit;padding:12px;border:1px solid #9FB4CC;border-radius:8px;margin-bottom:16px;background:#fff;color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+form .btn{width:100%;background:var(--navy);color:#fff}
+form .btn:hover{background:var(--navy2)}
+#status{margin:14px 0 0;font-size:.95rem;min-height:1.4em}
+#status.ok{color:#14532D}#status.err{color:#9B1C1C}
+.ph{background:#FFF3B0;color:#3B3000;padding:0 6px;border-radius:4px;outline:1px dashed #A68B00}
+footer{background:#071326;color:#B7CBE2;padding:36px 0;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+footer .links{display:flex;gap:20px}
+.linkbtn{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer;padding:0}
+dialog{max-width:560px;width:calc(100% - 32px);border:0;border-radius:14px;padding:28px;color:var(--ink)}
+dialog::backdrop{background:rgba(7,19,38,.7)}
+@media(max-width:860px){
+.menu{display:block}
+nav ul{display:none;position:absolute;left:0;right:0;top:64px;background:var(--navy);flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+nav ul.open{display:flex}
+nav li a{display:block;padding:14px 0}
+nav .btn{text-align:center;margin-top:8px}
+.hero .wrap,.about,.contact .wrap,.cards,.steps{grid-template-columns:1fr}
+section{padding:56px 0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header>
+<div class="wrap bar">
+<a class="logo" href="#top" aria-label="Meyer Digital, Startseite">MEYER <span>DIGITAL</span></a>
+<nav aria-label="Hauptmenü">
+<button class="menu" id="menuBtn" aria-expanded="false" aria-controls="menuList">Menü</button>
+<ul id="menuList">
+<li><a href="#leistungen">Leistungen</a></li>
+<li><a href="#referenzen">Referenzen</a></li>
+<li><a href="#ueber-mich">Über mich</a></li>
+<li><a href="#kontakt" class="btn btn-primary">Projekt anfragen</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+<div class="wrap">
+<div>
+<h1>Dein Unternehmen. Digital besser.</h1>
+<p class="lead">Moderne Websites und smarte Automatisierungen für kleine Unternehmen.</p>
+<div class="cta">
+<a class="btn btn-primary" href="#kontakt">Projekt anfragen</a>
+<a class="btn btn-ghost" href="#leistungen">Leistungen entdecken</a>
+</div>
+</div>
+<div class="phone" role="img" aria-label="Beispielhafte Restaurant-Website auf einem Smartphone">
+<div class="top">Café Beispiel<small>Konzeptprojekt</small></div>
+<div class="row"><b>Tagessuppe</b><span>5,50 €</span></div>
+<div class="row"><b>Flammkuchen</b><span>9,80 €</span></div>
+<div class="row"><b>Hausgemachter Kuchen</b><span>3,90 €</span></div>
+<span class="go">Tisch anfragen</span>
+</div>
+</div>
+</section>
+
+<section class="mist" id="leistungen">
+<div class="wrap">
+<div class="intro">
+<h2>Leistungen</h2>
+<p>Drei Einstiegspakete für kleine Betriebe. Was du brauchst, besprechen wir persönlich.</p>
+</div>
+<div class="cards">
+<article class="card">
+<h3>Website Start</h3>
+<div class="price">ab 349 €<small>Einstiegspreis</small></div>
+<p>Moderne, mobiloptimierte Website für dein Unternehmen.</p>
+</article>
+<article class="card main">
+<h3>Website Plus</h3>
+<div class="price">ab 549 €<small>Einstiegspreis</small></div>
+<p>Website mit zusätzlichen Inhalten:</p>
+<ul><li>Speisekarten</li><li>Bildergalerien</li><li>Anfrageformulare</li></ul>
+</article>
+<article class="card">
+<h3>Automation Mini</h3>
+<div class="price">ab 199 €<small>Einstiegspreis</small></div>
+<p>Kleine Automatisierungen, zum Beispiel:</p>
+<ul><li>CSV-Auswertungen</li><li>Wiederkehrende Berichte</li><li>Telegram-Benachrichtigungen</li></ul>
+</article>
+</div>
+<p class="note">Alle Preise sind Einstiegspreise. Der endgültige Preis hängt vom Projektumfang ab und steht vor Beginn im Angebot.</p>
+</div>
+</section>
+
+<section id="referenzen">
+<div class="wrap">
+<div class="intro">
+<h2>Referenzen</h2>
+<p>Diese drei Projekte sind Konzepte, die ich als Beispiel gestaltet habe. Es sind keine echten Kundenprojekte.</p>
+</div>
+<div class="cards">
+<article class="ref">
+<div class="shot s1" aria-hidden="true"><i style="width:55%"></i><i style="width:80%"></i><i style="width:65%"></i><i style="width:40%"></i></div>
+<div class="body"><span class="tag">Konzeptprojekt</span><h3>Restaurant-Website</h3><p>Speisekarte, Öffnungszeiten und Tischanfrage, auf dem Handy schnell zu finden.</p></div>
+</article>
+<article class="ref">
+<div class="shot s2" aria-hidden="true"><div class="blk"></div><i></i><i style="width:40%"></i></div>
+<div class="body"><span class="tag">Konzeptprojekt</span><h3>Handwerksbetrieb</h3><p>Leistungen, Einsatzgebiet und ein einfaches Formular für Terminwünsche.</p></div>
+</article>
+<article class="ref">
+<div class="shot s3" aria-hidden="true"><div class="bub">Tagesbericht: 3 neue Anfragen</div><div class="bub">Wochenauswertung liegt bereit</div></div>
+<div class="body"><span class="tag">Konzeptprojekt</span><h3>Automatisierung</h3><p>Eine CSV-Datei wird ausgewertet, das Ergebnis kommt als Telegram-Nachricht.</p></div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="mist" id="ueber-mich">
+<div class="wrap about">
+<div>
+<h2>Über mich</h2>
+<p>Ich betreibe Meyer Digital nebenberuflich und arbeite in der Region Verden und Walsrode. Ich baue Websites und kleine Automatisierungen für Betriebe, die gefunden werden wollen, aber keine Zeit für Technik haben.</p>
+<p>Ich erkläre alles in normaler Sprache, bleibe dein fester Ansprechpartner und baue nichts, was du nicht brauchst. Meine Beispielprojekte zeigen, wie ich arbeite.</p>
+<p><span class="ph">[Platzhalter: Name und ein persönlicher Satz ergänzen]</span></p>
+</div>
+<ul class="facts">
+<li><b>Praktische Lösungen</b>Ergebnisse, die im Alltag funktionieren.</li>
+<li><b>Persönliche Betreuung</b>Du sprichst direkt mit mir.</li>
+<li><b>Verständliche Kommunikation</b>Ohne Fachchinesisch, mit klaren Angeboten.</li>
+</ul>
+</div>
+</section>
+
+<section id="ablauf">
+<div class="wrap">
+<div class="intro"><h2>So läuft ein Projekt ab</h2></div>
+<ol class="steps">
+<li><h3>Unverbindliche Anfrage</h3><p>Du schilderst kurz, was du brauchst.</p></li>
+<li><h3>Besprechung</h3><p>Wir klären Wünsche, Inhalte und Umfang.</p></li>
+<li><h3>Angebot und Umsetzung</h3><p>Du bekommst ein Angebot und ich setze es um.</p></li>
+<li><h3>Test, Übergabe, Veröffentlichung</h3><p>Du prüfst alles, dann geht es online.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="contact" id="kontakt">
+<div class="wrap">
+<div>
+<h2>Projekt anfragen</h2>
+<p>Schreib mir, was du vorhast. Die Anfrage ist unverbindlich.</p>
+<p>E-Mail: <span class="ph">[E-Mail-Adresse eintragen]</span><br>Telefon: <span class="ph">[Telefonnummer eintragen]</span></p>
+</div>
+<form id="form" novalidate>
+<label for="name">Name</label>
+<input id="name" name="name" autocomplete="name" required>
+<label for="mail">Geschäftliche E-Mail-Adresse</label>
+<input id="mail" name="mail" type="email" autocomplete="email" required>
+<label for="svc">Gewünschte Leistung</label>
+<select id="svc" name="svc" required>
+<option value="">Bitte wählen</option>
+<option>Website Start</option>
+<option>Website Plus</option>
+<option>Automation Mini</option>
+<option>Noch unsicher</option>
+</select>
+<label for="msg">Nachricht</label>
+<textarea id="msg" name="msg" required></textarea>
+<button class="btn" type="submit">Anfrage vorbereiten</button>
+<p id="status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<div>Meyer Digital<br><span class="ph">[Vollständige Unternehmensangaben eintragen]</span></div>
+<div class="links">
+<button class="linkbtn" data-open="impressum">Impressum</button>
+<button class="linkbtn" data-open="datenschutz">Datenschutz</button>
+</div>
+</div>
+</footer>
+
+<dialog id="impressum" aria-labelledby="t1">
+<h2 id="t1">Impressum</h2>
+<p><span class="ph">[Platzhalter: Hier kommt dein vollständiges Impressum hin, mit Name, Anschrift und Kontakt.]</span></p>
+<button class="btn btn-primary" data-close>Schließen</button>
+</dialog>
+<dialog id="datenschutz" aria-labelledby="t2">
+<h2 id="t2">Datenschutz</h2>
+<p><span class="ph">[Platzhalter: Hier kommt deine Datenschutzerklärung hin.]</span></p>
+<button class="btn btn-primary" data-close>Schließen</button>
+</dialog>
+
+<script>
+// ===== HIER ANPASSEN: deine echte E-Mail-Adresse =====
+var EMAIL = "kontakt@example.de";
+// =====================================================
+
+var btn = document.getElementById("menuBtn"), list = document.getElementById("menuList");
+btn.addEventListener("click", function () {
+  var open = list.classList.toggle("open");
+  btn.setAttribute("aria-expanded", open);
+});
+list.addEventListener("click", function (e) {
+  if (e.target.tagName === "A") { list.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); }
+});
+
+document.querySelectorAll("[data-open]").forEach(function (b) {
+  b.addEventListener("click", function () { document.getElementById(b.dataset.open).showModal(); });
+});
+document.querySelectorAll("[data-close]").forEach(function (b) {
+  b.addEventListener("click", function () { b.closest("dialog").close(); });
+});
+
+var form = document.getElementById("form"), status = document.getElementById("status");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (!form.checkValidity()) {
+    status.className = "err";
+    status.textContent = "Bitte fülle alle Felder aus und prüfe die E-Mail-Adresse.";
+    form.reportValidity();
+    return;
+  }
+  var d = new FormData(form);
+  var body = "Name: " + d.get("name") + "\nE-Mail: " + d.get("mail") + "\nLeistung: " + d.get("svc") + "\n\n" + d.get("msg");
+  status.className = "ok";
+  status.textContent = "Deine Anfrage ist vorbereitet. Dein E-Mail-Programm öffnet sich, die Nachricht ist erst gesendet, wenn du sie dort abschickst.";
+  window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Projektanfrage Meyer Digital") + "&body=" + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
